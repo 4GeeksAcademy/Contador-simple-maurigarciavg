@@ -77,7 +77,7 @@ function startTimers() {
       }
     }
     renderApp();
-  }, 100); //deja que el contador llegue a 0, ponlo mas rapido si quieres :)
+  }, 1000); //deja que el contador llegue a 0, ponlo mas rapido si quieres :)
 }
 
 
