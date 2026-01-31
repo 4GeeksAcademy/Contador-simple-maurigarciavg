@@ -1,11 +1,143 @@
-/* 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+html, body {
+    height: 100%;
+    width: 100%;
+}
 
-*/
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+    font-family: monospace;
+    overflow: hidden;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.counters {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.seconds-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    color: #00ff00;
+    padding: 30px 50px;
+    border-radius: 15px;
+    border: 3px solid #00ff00;
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+    font-size: 32px;
+    min-width: 280px;
+    text-align: center;
+}
+
+.countdown {
+    background: rgba(255, 165, 0, 0.9);
+    color: #fff;
+    padding: 30px 50px;
+    border-radius: 15px;
+    border: 3px solid #ff8c00;
+    box-shadow: 0 0 25px rgba(255, 140, 0, 0.5);
+    font-size: 32px;
+    min-width: 280px;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.start, .stop, .restart {
+    width: 65px;
+    height: 65px;
+    border: 2px solid #00ff00;
+    border-radius: 15px;
+    background: rgba(0, 255, 0, 0.1);
+    color: #00ff00;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.start:hover {
+    background: rgba(0, 255, 0, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #00ff00;
+}
+
+.stop:hover {
+    border-color: #ff0000;
+    color: #ff0000;
+    background: rgba(255, 0, 0, 0.2);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ff0000;
+}
+
+.restart:hover {
+    border-color: #ffee00;
+    color: #ffee00;
+    background: rgba(255, 238, 0, 0.2);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ffee00;
+}
+
+@keyframes shake-and-break {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-2px, -3px) rotate(-2deg); }
+    30% { transform: translate(4px, 3px) rotate(1deg); opacity: 1; }
+    50% { transform: scale(1.4) rotate(5deg); opacity: 0.5; filter: blur(2px); }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+.countdown.boom {
+    animation: shake-and-break 0.8s ease-out forwards;
+    pointer-events: none; 
+}
+
+.cracked-screen::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/broken.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/*un sustillo, xD, me he ayudado mucho de IA para hacer este efecto*/

@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import SecondsCounter from "./SecondsCounter";
-
-//create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-          < SecondsCounter />  
+const [seconds, setSeconds] = useState(0);
 
-		
-		</div>
-	);
-};
+useEffect(() => {
+  setInterval(() => {
+  seconds = seconds + 1;
+}, 1000);
+
+});
+
+
+
+}
 
 export default Home;

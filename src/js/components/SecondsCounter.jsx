@@ -1,30 +1,34 @@
 import React from "react";
 
-import { useState, useEffect } from "react";
+function SecondsCounter(props) {
+  return (
+    <div className="main-container">
 
-function SecondsCounter() {
+      <div className="counters">
+        <div className="seconds-counter">
+          ⏱️ {props.hours.toString().padStart(2, '0')}:
+          {props.minutes.toString().padStart(2, '0')}:
+          {props.seconds.toString().padStart(2, '0')} ↑
+        </div>
 
-    const [seconds, setSeconds] = useState(0);
-    const [minutes, setMinutes] = useState(0);
+        <div className="countdown">
+          ⏳ {props.hoursDown.toString().padStart(2, '0')}:
+          {props.minutesDown.toString().padStart(2, '0')}:
+          {props.secondsDown.toString().padStart(2, '0')} ↓
+        </div>
+      </div>
 
-    useEffect(() => {
-        setSeconds(seconds + 1)
-    }, [1000]);
-
-
-     useEffect(() => {
-        setMinutes(minutes + 1)
-    }, []);
-
-return (
-    <div>
-        <p>{minutes} : {seconds} </p>
+      <div className="buttons">
+        <button className="start" onClick={props.onStart}>▶️</button>
+        <button className="stop" onClick={props.onStop}>⏸️</button>
+        <button className="restart" onClick={props.onReset}>🔄</button>
+      </div>
 
     </div>
-)
 
+
+
+  );
 }
-
-
-
 export default SecondsCounter;
+
